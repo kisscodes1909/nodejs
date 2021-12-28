@@ -1,6 +1,7 @@
 const http = require('http');
 require("dotenv").config();
 const port = process.env.PORT || 1234;
+const student = require('./student');
 
 const server = http.createServer((req, res) => {
     console.log(req.url);
@@ -10,7 +11,7 @@ const server = http.createServer((req, res) => {
         res.end();
     } else if (req.url == '/student') {
         res.write('This is Student Page');
-        res.end();
+        res.end(student.student.join());
     }
 });
 
